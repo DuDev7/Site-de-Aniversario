@@ -1,0 +1,164 @@
+<!DOCTYPE html> <!-- Define que o documento é HTML5 -->
+<html lang="pt-br"> <!-- Define idioma da página -->
+
+<head> <!-- Cabeçalho da página -->
+
+<meta charset="UTF-8"> <!-- Permite acentos -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz o site ser responsivo -->
+
+<title>Nosso Amor ❤️</title> <!-- Título da aba -->
+
+<style> /* Início do CSS */
+
+body{ /* Estilo do corpo da página */
+margin:0; /* Remove margens padrão */
+font-family:Arial; /* Define a fonte */
+background:linear-gradient(45deg,#ff9a9e,#fad0c4); /* Fundo degradê romântico */
+text-align:center; /* Centraliza o conteúdo */
+overflow-x:hidden; /* Evita scroll lateral */
+}
+
+h1{ /* Estilo do título */
+margin-top:30px; /* Espaço superior */
+font-size:40px; /* Tamanho da fonte */
+color:#fff; /* Cor branca */
+}
+
+.contador{ /* Estilo das caixas de contador */
+font-size:25px; /* Tamanho da fonte */
+margin:20px; /* Espaçamento externo */
+color:#fff; /* Cor branca */
+font-weight:bold; /* Deixa em negrito */
+}
+
+.galeria{ /* Container da galeria */
+display:grid; /* Usa layout grid */
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); /* Cria colunas responsivas */
+gap:15px; /* Espaço entre fotos */
+padding:30px; /* Espaçamento interno */
+max-width:1000px; /* Largura máxima */
+margin:auto; /* Centraliza */
+}
+
+.galeria img{ /* Estilo das imagens */
+width:100%; /* Ocupa toda largura da célula */
+height:220px; /* Altura fixa */
+object-fit:cover; /* Ajusta imagem sem distorcer */
+border-radius:15px; /* Borda arredondada */
+transition:0.3s; /* Animação suave */
+box-shadow:0 10px 20px rgba(0,0,0,0.2); /* Sombra */
+}
+
+.galeria img:hover{ /* Efeito quando passa o mouse */
+transform:scale(1.05); /* Dá zoom */
+}
+
+.coracao{ /* Estilo dos corações animados */
+position:fixed; /* Fixa na tela */
+top:-10px; /* Começa acima da tela */
+color:red; /* Cor do coração */
+font-size:20px; /* Tamanho */
+animation:cair linear infinite; /* Aplica animação de queda */
+}
+
+@keyframes cair{ /* Animação de queda */
+0%{ /* Início */
+transform:translateY(-10vh); /* Começa acima da tela */
+}
+100%{ /* Final */
+transform:translateY(110vh); /* Cai até sair da tela */
+}
+}
+
+</style> <!-- Fim do CSS -->
+
+</head> <!-- Fim do cabeçalho -->
+
+<body> <!-- Corpo da página -->
+
+<h1>❤️ Eduardo & Amor ❤️</h1> <!-- Título principal -->
+
+<div class="contador" id="tempoJuntos"></div> <!-- Texto mostrando tempo juntos -->
+
+<div class="contador" id="contador"></div> <!-- Contagem regressiva -->
+
+<div class="galeria"> <!-- Início da galeria -->
+
+<img src="foto1.jpeg"> <!-- Foto 1 -->
+<img src="foto2.jpeg"> <!-- Foto 2 -->
+<img src="foto3.jpeg"> <!-- Foto 3 -->
+<img src="foto4.jpeg"> <!-- Foto 4 -->
+<img src="foto5.jpg"> <!-- Foto 5 -->
+<img src="foto6.jpg"> <!-- Foto 6 -->
+<img src="foto7.jpg"> <!-- Foto 7 -->
+<img src="foto8.jpg"> <!-- Foto 8 -->
+
+</div> <!-- Fim da galeria -->
+
+<script> /* Início do JavaScript */
+
+var dataNamoro = new Date("2025-04-19"); /* Coloque aqui a data que vocês começaram a namorar */
+
+var proximoAniversario = new Date("2026-04-19"); /* Data do próximo aniversário */
+
+setInterval(function(){ /* Executa a função a cada segundo */
+
+var agora = new Date(); /* Data atual */
+
+var diff = agora - dataNamoro; /* Diferença de tempo desde o início do namoro */
+
+var dias = Math.floor(diff/(1000*60*60*24)); /* Converte diferença para dias */
+
+var anos = Math.floor(dias/365); /* Calcula anos */
+
+var meses = Math.floor((dias%365)/30); /* Calcula meses */
+
+var diasRest = Math.floor((dias%365)%30); /* Calcula dias restantes */
+
+document.getElementById("tempoJuntos").innerHTML = /* Atualiza texto na tela */
+"Estamos juntos há: "+anos+" anos "+meses+" meses "+diasRest+" dias ❤️";
+
+var diff2 = proximoAniversario - agora; /* Diferença até o próximo aniversário */
+
+var d = Math.floor(diff2/(1000*60*60*24)); /* Dias restantes */
+
+var h = Math.floor((diff2/(1000*60*60))%24); /* Horas restantes */
+
+var m = Math.floor((diff2/(1000*60))%60); /* Minutos restantes */
+
+var s = Math.floor((diff2/1000)%60); /* Segundos restantes */
+
+document.getElementById("contador").innerHTML = /* Atualiza contador */
+"Faltam "+d+" dias "+h+"h "+m+"m "+s+"s para nosso aniversário 💖";
+
+},1000); /* Atualiza a cada 1 segundo */
+
+function criarCoracao(){ /* Função que cria corações */
+
+var coracao = document.createElement("div"); /* Cria um elemento div */
+
+coracao.classList.add("coracao"); /* Adiciona classe coração */
+
+coracao.innerHTML="❤️"; /* Conteúdo do coração */
+
+coracao.style.left=Math.random()*100+"vw"; /* Posição horizontal aleatória */
+
+coracao.style.animationDuration=(Math.random()*3+2)+"s"; /* Velocidade aleatória */
+
+document.body.appendChild(coracao); /* Adiciona no corpo da página */
+
+setTimeout(()=>{ /* Aguarda um tempo */
+
+coracao.remove(); /* Remove o coração */
+
+},5000); /* Remove após 5 segundos */
+
+}
+
+setInterval(criarCoracao,300); /* Cria novos corações constantemente */
+
+</script> <!-- Fim do JavaScript -->
+
+</body> <!-- Fim do corpo -->
+
+</html> <!-- Fim do documento -->
